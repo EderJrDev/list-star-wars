@@ -1,6 +1,7 @@
 import { Card, Col, Divider, Row, Typography } from "antd";
+import { PropsSider } from "../../types/sider";
 
-const Character = ({ character }: any) => {
+const Character: React.FC<PropsSider> = ({ character }) => {
   return (
     <div>
       <Divider

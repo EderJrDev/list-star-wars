@@ -1,13 +1,8 @@
 import { Col, Input, Row, Typography } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
-
-interface HeaderProps {
-  onSearch: (value: string) => void;
-}
+import { HeaderProps } from "../../types/header";
 
 const Header: React.FC<HeaderProps> = ({ onSearch }) => {
-  const { Title } = Typography;
-
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     onSearch(e.target.value);
   };
@@ -29,9 +24,9 @@ const Header: React.FC<HeaderProps> = ({ onSearch }) => {
       <Row>
         <Col span={24}>
           <Col className="gutter-row" span={12}>
-            <Title style={{ color: "#EDDE1D" }} level={2}>
+            <Typography.Title style={{ color: "#EDDE1D" }} level={2}>
               Star Wars Characters
-            </Title>
+            </Typography.Title>
           </Col>
         </Col>
       </Row>

@@ -1,34 +1,24 @@
 import React, { memo } from "react";
-import { Card as AntCard, Col } from "antd";
 import { Link } from "react-router-dom";
 
-interface PropsItem {
-  url: string;
-  name: string;
-}
+import { Card as AntCard, Col } from "antd";
+import { PropsCard } from "../../types/card";
+import { getCharactersNumber } from "../../utils/getCharactersNumber";
 
-const CharacterCard: React.FC<PropsItem> = memo(({ url, name }) => {
-  const { Meta } = AntCard;
-
-  const getCharactersNumber = (url: string): string => {
-    const dataArray = url.split("/");
-    return dataArray[dataArray.length - 2];
-  };
-
+const CharacterCard: React.FC<PropsCard> = memo(({ url, name }) => {
   const getImageSrc = (url: string): string | null => {
     const number = getCharactersNumber(url);
     try {
       return require(`../../static/assets/img/people/${number}.jpg`);
     } catch (err) {
-      console.error(`Image not found for character number ${number}`);
-      return null;
+      return "Image not found.";
     }
   };
 
   return (
     <Col
       key={url}
-      className="gutter-row anime"
+      className="gutter-row"
       xs={24}
       sm={12}
       md={8}
@@ -47,7 +37,7 @@ const CharacterCard: React.FC<PropsItem> = memo(({ url, name }) => {
           }}
           cover={<img alt={name} src={getImageSrc(url) || ""} />}
         >
-          <Meta title={name} />
+          <AntCard.Meta title={name} />
         </AntCard>
       </Link>
     </Col>

@@ -6,19 +6,18 @@ import { getFilm } from "../../services/getFilm";
 import { getVehicles } from "../../services/getVehicles";
 import { getStarships } from "../../services/getStarships";
 // utils
+import { PropsSider } from "../../types/sider";
 import { getCharactersNumber } from "../../utils/getCharactersNumber";
 
-const Others = ({ character }: any) => {
+const Others: React.FC<PropsSider> = ({ character }) => {
   const [filmNames, setFilmNames] = useState<string[]>([]);
   const [vehiclesNames, setVehiclesNames] = useState<string[]>([]);
   const [starshipsNames, setStarshipsNames] = useState<string[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    let isMounted = true; // controle de montagem do componente
+    let isMounted = true;
 
     const fetchData = async () => {
-      setLoading(true);
       try {
         const fetchFilms =
           character?.films?.map(async (film: string) => {
@@ -58,10 +57,6 @@ const Others = ({ character }: any) => {
         setStarshipsNames(erro);
         setVehiclesNames(erro);
         console.error("Failed to fetch data", error);
-      } finally {
-        if (isMounted) {
-          setLoading(false);
-        }
       }
     };
 

@@ -1,8 +1,9 @@
 import { Avatar, Layout, Typography } from "antd";
-import React from "react";
+import { PropsSider } from "../../types/sider";
 import { getCharactersNumber } from "../../utils/getCharactersNumber";
 
-const Sider = ({ character }: any) => {
+const Sider: React.FC<PropsSider> = ({ character }) => {
+  console.log(character);
   const siderStyle: React.CSSProperties = {
     textAlign: "center",
     lineHeight: "120px",
