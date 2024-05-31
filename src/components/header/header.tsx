@@ -1,6 +1,5 @@
-import { SearchOutlined } from "@ant-design/icons";
 import { Col, Input, Row, Typography } from "antd";
-import React, { useState } from "react";
+import { SearchOutlined } from "@ant-design/icons";
 
 interface HeaderProps {
   onSearch: (value: string) => void;

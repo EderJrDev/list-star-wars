@@ -1,9 +1,15 @@
-:root {
-  --strong-blue: #273453;
-  --blue: #1a2237;
-  --blue-2: #1e3497;
-  --background: #10141e;
-  --light: #c0d2ff;
+body {
+  margin: 0;
+  color: #fff;
+  background: #000
+    url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top
+    center;
+}
+
+.App {
+  max-width: 1200px;
+  color: #fff;
+  margin: 2rem auto 3rem;
 }
 
 /* style input search  */
@@ -13,41 +19,4 @@
   margin-top: 15px;
   padding: 10px 0 10px 10px;
   border-radius: 15px;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-body {
-  margin: 0;
-  color: #fff;
-  font-family: "Inter", sans-serif;
-  background: #000
-    url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top
-    center;
-  /* background:  linear-gradient(to top, #c0d2ff, #273453); */
-  /* background-color: var(--background); */
-}
-
-.App {
-  max-width: 1200px;
-  color: #fff;
-  margin: 2rem auto 3rem;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

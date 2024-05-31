@@ -1,11 +1,11 @@
 import { Suspense, useEffect, useState } from "react";
 import { Pagination, Row } from "antd";
-import axios from "axios";
-import Header from "../../components/header/header";
-import CharacterCard from "../../components/card/card";
-import Loader from "../../components/loader/loader";
 
-const SWAPI_URL = "https://swapi.dev/api/people/";
+import axios from "axios";
+
+import Header from "../../components/header/header";
+import Loader from "../../components/loader/loader";
+import CharacterCard from "../../components/card/card";
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -13,9 +13,11 @@ const Home = () => {
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    const fetchData = async (page: any) => {
+    const fetchData = async (page: number) => {
       try {
-        const response = await axios.get(`${SWAPI_URL}?page=${page}`);
+        const response = await axios.get(
+          `${process.env.REACT_APP_SWAPI_URL}/people?page=${page}`
+        );
         setData(response.data.results);
         setTotal(response.data.count);
       } catch (error) {
@@ -32,7 +34,9 @@ const Home = () => {
 
   const searchCharacter = async (name: string) => {
     try {
-      const response = await axios.get(`${SWAPI_URL}?search=${name}`);
+      const response = await axios.get(
+        `${process.env.REACT_APP_SWAPI_URL}/people?search=${name}`
+      );
       setData(response.data.results);
     } catch (error) {
       console.error("Error searching for character", error);
