@@ -6,21 +6,13 @@
   --light: #c0d2ff;
 }
 
-body {
-  --sb-track-color: #181c27;
-  --sb-thumb-color: #222d4c;
-  --sb-size: 12px;
-
-  scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
-}
-
-.search-movies {
-  /* color: white; */
+/* style input search  */
+.search {
+  color: gray;
   max-width: 340px;
   margin-top: 15px;
   padding: 10px 0 10px 10px;
   border-radius: 15px;
-  background: var(--blue);
 }
 
 .App-header {
@@ -34,15 +26,15 @@ body {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
 body {
   margin: 0;
   color: #fff;
   font-family: "Inter", sans-serif;
-  background-color: var(--background);
+  background: #000
+    url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top
+    center;
+  /* background:  linear-gradient(to top, #c0d2ff, #273453); */
+  /* background-color: var(--background); */
 }
 
 .App {

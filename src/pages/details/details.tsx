@@ -58,13 +58,16 @@ const Details = () => {
 
   const layoutStyle: React.CSSProperties = {
     borderRadius: 8,
+    // alignItems: "center",
+    justifyItems: "center",
     backgroundColor: "transparent",
   };
 
   const arrowStyle: React.CSSProperties = {
     height: 20,
     width: 20,
-    backgroundColor: "#1e3497",
+    backgroundColor: "#EDDE1D",
+    color: '#000',
     borderRadius: 15,
     display: "flex",
     flexDirection: "column",
@@ -181,20 +184,41 @@ const Details = () => {
       </div>
       {character && !loading && (
         <Layout style={layoutStyle}>
-          <Sider width="25%" style={siderStyle}>
+          <Sider
+            width="25%"
+            breakpoint="md"
+            collapsedWidth="0"
+            style={siderStyle}
+          >
             <Avatar
               shape="square"
               size={300}
               src={getImageSrc(character.url) || ""}
             />{" "}
-            <Title level={2} style={{ color: "#fff", marginTop: "20px" }}>
+            <Title level={2} style={{ color: "#EDDE1D", marginTop: "20px" }}>
               {character.name}
             </Title>
           </Sider>
           <Content>
-            <Divider style={{ color: "#c0d2ff" }}>Character Details</Divider>
+            <Divider
+              style={{
+                color: "#EDDE1D",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              Character Details
+            </Divider>
 
-            <Row gutter={16} style={{ padding: 20, gap: 30 }}>
+            <Row
+              gutter={16}
+              style={{
+                padding: 20,
+                gap: 20,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
               <Col className="gutter-row" xs={24} sm={12} md={8} lg={6} xl={6}>
                 <Card
                   style={{
@@ -258,58 +282,67 @@ const Details = () => {
               </Col>
             </Row>
 
-            <Divider style={{ color: "#c0d2ff" }}>
+            <Divider style={{ color: "#EDDE1D" }}>
               Films && Starships && Vehicles
             </Divider>
-            <Row gutter={16} style={{ padding: 20, gap: 20 }}>
-              <Card
-                title="Films"
-                style={{
-                  width: 230,
-                }}
-              >
-                <List
-                  dataSource={character.films}
-                  renderItem={(film, index) => (
-                    <List.Item>
-                      <PlaySquareOutlined />{" "}
-                      <Text>{filmNames[index] || "Loading..."}</Text>
-                    </List.Item>
-                  )}
-                />
-              </Card>
-              <Card
-                title="Starships"
-                style={{
-                  width: 230,
-                }}
-              >
-                <List
-                  dataSource={character.starships}
-                  renderItem={(film, index) => (
-                    <List.Item>
-                      <PlaySquareOutlined />{" "}
-                      <Text>{startshipsNames[index] || "Loading..."}</Text>
-                    </List.Item>
-                  )}
-                />
-              </Card>
-              <Card
-                title="Vehicles"
-                style={{
-                  width: 230,
-                }}
-              >
-                <List
-                  dataSource={character.vehicles}
-                  renderItem={(film, index) => (
-                    <List.Item>
-                      <PlaySquareOutlined />{" "}
-                      <Text>{vehiclesNames[index] || "Loading..."}</Text>
-                    </List.Item>
-                  )}
-                />
-              </Card>
+            <Row
+              gutter={16}
+              style={{ padding: 20, gap: 20, justifyContent: "center" }}
+            >
+              <Col className="gutter-row" xs={24} sm={12} md={8} lg={6} xl={6}>
+                <Card
+                  title="Films"
+                  style={{
+                    width: 230,
+                  }}
+                >
+                  <List
+                    dataSource={character.films}
+                    renderItem={(film, index) => (
+                      <List.Item>
+                        <PlaySquareOutlined />{" "}
+                        <Text>{filmNames[index] || "Loading..."}</Text>
+                      </List.Item>
+                    )}
+                  />
+                </Card>
+              </Col>
+              <Col className="gutter-row" xs={24} sm={12} md={8} lg={6} xl={6}>
+                <Card
+                  title="Starships"
+                  style={{
+                    width: 230,
+                  }}
+                >
+                  <List
+                    dataSource={character.starships}
+                    renderItem={(film, index) => (
+                      <List.Item>
+                        <PlaySquareOutlined />{" "}
+                        <Text>{startshipsNames[index] || "Loading..."}</Text>
+                      </List.Item>
+                    )}
+                  />
+                </Card>
+              </Col>
+              <Col className="gutter-row" xs={24} sm={12} md={8} lg={6} xl={6}>
+                <Card
+                  title="Vehicles"
+                  style={{
+                    width: 230,
+                  }}
+                >
+                  <List
+                    dataSource={character.vehicles}
+                    renderItem={(film, index) => (
+                      <List.Item>
+                        <PlaySquareOutlined />{" "}
+                        <Text>{vehiclesNames[index] || "Loading..."}</Text>
+                      </List.Item>
+                    )}
+                  />
+                </Card>
+              </Col>
             </Row>
           </Content>
         </Layout>

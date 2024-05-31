@@ -26,19 +26,28 @@ const CharacterCard: React.FC<PropsItem> = memo(({ url, name }) => {
   };
 
   return (
-    <Col key={url} className="gutter-row" xs={24} sm={12} md={8} lg={6} xl={6}>
+    <Col
+      key={url}
+      className="gutter-row anime"
+      xs={24}
+      sm={12}
+      md={8}
+      lg={6}
+      xl={6}
+    >
       <Link to={`/characters/${getCharactersNumber(url)}`}>
         <AntCard
           hoverable
           style={{
+            borderColor: "#EDDE1D",
             cursor: "pointer",
             width: 290,
             marginBottom: 30,
-            backgroundColor: "#c0d2ff",
+            backgroundColor: "#EDDE1D",
           }}
           cover={<img alt={name} src={getImageSrc(url) || ""} />}
         >
-          <Meta description title={name} />
+          <Meta title={name} />
         </AntCard>
       </Link>
     </Col>

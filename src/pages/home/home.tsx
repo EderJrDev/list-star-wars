@@ -30,29 +30,55 @@ const Home = () => {
     setCurrentPage(page);
   };
 
+  const searchCharacter = async (name: string) => {
+    try {
+      const response = await axios.get(`${SWAPI_URL}?search=${name}`);
+      setData(response.data.results);
+    } catch (error) {
+      console.error("Error searching for character", error);
+    }
+  };
+
   return (
     <div>
-      <Header />
+      <Header onSearch={searchCharacter} />
       <Suspense fallback={<Loader />}>
-        <Row
-          style={{ paddingTop: 20 }}
-          gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}
-        >
-          {data.map((item: any) => (
-            <CharacterCard key={item.name} url={item.url} name={item.name} />
-          ))}
-        </Row>
-        <Row
-          style={{ backgroundColor: "white", borderRadius: 5, padding: 3 }}
-          justify="center"
-        >
-          <Pagination
-            current={currentPage}
-            total={total}
-            pageSize={10}
-            onChange={handlePageChange}
-          />
-        </Row>
+        {data?.length <= 0 ? (
+          <>
+            <div>
+              <h3>no results found.</h3>
+            </div>
+          </>
+        ) : (
+          <>
+            <Row
+              style={{ paddingTop: 20 }}
+              gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}
+            >
+              {data.map((item: any) => (
+                <CharacterCard
+                  key={item.name}
+                  url={item.url}
+                  name={item.name}
+                />
+              ))}
+            </Row>
+            <Row justify="center">
+              <Pagination
+                style={{
+                  color: "#fff",
+                  backgroundColor: "#fff",
+                  borderRadius: 5,
+                  padding: 3,
+                }}
+                current={currentPage}
+                total={total}
+                pageSize={10}
+                onChange={handlePageChange}
+              />
+            </Row>
+          </>
+        )}
       </Suspense>
     </div>
   );
