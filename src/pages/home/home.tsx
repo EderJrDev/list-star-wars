@@ -1,5 +1,5 @@
 import { Suspense, useEffect, useState } from "react";
-import { Pagination, Row } from "antd";
+import { Col, Pagination, Row, Typography } from "antd";
 //components
 import Header from "../../components/header/header";
 import Loader from "../../components/loader/loader";
@@ -47,9 +47,17 @@ const Home = () => {
       <Suspense fallback={<Loader />}>
         {data?.length === 0 ? (
           <>
-            <div>
-              <h3>no results found.</h3>
-            </div>
+            <Row justify="center" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+              <Col
+                className="gutter-row"
+                span={24}
+                style={{ textAlign: "center" }}
+              >
+                <Typography.Title style={{ color: "#fff" }} level={4}>
+                  no results found.
+                </Typography.Title>
+              </Col>
+            </Row>
           </>
         ) : (
           <>
@@ -75,7 +83,7 @@ const Home = () => {
                   padding: 3,
                 }}
                 current={currentPage}
-                total={total} 
+                total={total}
                 pageSize={10}
                 onChange={handlePageChange}
               />

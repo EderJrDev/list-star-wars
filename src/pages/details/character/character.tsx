@@ -45,6 +45,7 @@ const Character: React.FC<PropsSider> = ({ character }) => {
           <Card
             style={{
               width: 230,
+              margin: "0 auto"
             }}
           >
             <Typography.Text>
@@ -66,6 +67,7 @@ const Character: React.FC<PropsSider> = ({ character }) => {
           <Card
             style={{
               width: 230,
+              margin: "0 auto"
             }}
           >
             <Typography.Text>
@@ -86,6 +88,7 @@ const Character: React.FC<PropsSider> = ({ character }) => {
           <Card
             style={{
               width: 230,
+              margin: "0 auto"
             }}
           >
             <Typography.Text>

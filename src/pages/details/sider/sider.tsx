@@ -1,4 +1,4 @@
-import { Avatar, Layout, Typography } from "antd";
+import { Avatar, Typography } from "antd";
 import { PropsSider } from "../../../types/sider";
 import { getCharactersNumber } from "../../../utils/getCharactersNumber";
 
@@ -21,12 +21,7 @@ const Sider: React.FC<PropsSider> = ({ character }) => {
   };
 
   return (
-    <Layout.Sider
-      width="25%"
-      breakpoint="md"
-      collapsedWidth="0"
-      style={siderStyle}
-    >
+    <div style={siderStyle}>
       <Avatar
         shape="square"
         size={300}
@@ -38,7 +33,7 @@ const Sider: React.FC<PropsSider> = ({ character }) => {
       >
         {character.name}
       </Typography.Title>
-    </Layout.Sider>
+    </div>
   );
 };
 

@@ -77,7 +77,7 @@ const Others: React.FC<PropsSider> = ({ character }) => {
         style={{ padding: 20, gap: 20, justifyContent: "center" }}
       >
         <Col className="gutter-row" xs={24} sm={12} md={8} lg={6} xl={6}>
-          <Card title="Films" style={{ width: 230 }}>
+          <Card title="Films" style={{ width: 230, margin: "0 auto" }}>
             <List
               dataSource={character.films}
               renderItem={(film, index) => (
@@ -92,7 +92,7 @@ const Others: React.FC<PropsSider> = ({ character }) => {
           </Card>
         </Col>
         <Col className="gutter-row" xs={24} sm={12} md={8} lg={6} xl={6}>
-          <Card title="Starships" style={{ width: 230 }}>
+          <Card title="Starships" style={{ width: 230, margin: "0 auto" }}>
             <List
               dataSource={character.starships}
               renderItem={(starship, index) => (
@@ -107,7 +107,7 @@ const Others: React.FC<PropsSider> = ({ character }) => {
           </Card>
         </Col>
         <Col className="gutter-row" xs={24} sm={12} md={8} lg={6} xl={6}>
-          <Card title="Vehicles" style={{ width: 230 }}>
+          <Card title="Vehicles" style={{ width: 230, margin: "0 auto" }}>
             <List
               dataSource={character.vehicles}
               renderItem={(vehicle, index) => (

@@ -32,7 +32,8 @@ const CharacterCard: React.FC<PropsCard> = memo(({ url, name }) => {
             borderColor: "#EDDE1D",
             cursor: "pointer",
             width: 290,
-            marginBottom: 30,
+            margin: "0 auto",
+            marginBottom: 40,
             backgroundColor: "#EDDE1D",
           }}
           cover={<img alt={name} src={getImageSrc(url) || ""} />}

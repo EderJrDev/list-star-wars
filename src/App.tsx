@@ -10,9 +10,6 @@ function App() {
       <Router>
         <div>
           <Switch>
-            <Route path="/about">
-              <Home />
-            </Route>
             <Route path="/characters/:id">
               <Details />
             </Route>

@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 // ant
-import { Layout } from "antd";
+import { Layout, Row, Col } from "antd";
 import { ArrowLeftOutlined } from "@ant-design/icons";
-//pages
+// pages
 import Sider from "./sider/sider";
 import Others from "./others/others";
 import Character from "./character/character";
-//services
-import { getCharacter } from "../../services/getCharacter";
+// services
 import { PropsCharacter } from "../../types/character";
+import { getCharacter } from "../../services/getCharacter";
 
 const Details = () => {
   const layoutStyle: React.CSSProperties = {
@@ -58,7 +58,7 @@ const Details = () => {
   useEffect(() => {
     if (location.pathname) {
       const parts = location.pathname.split("/");
-      const id = parts[parts.length - 1]; // Pega a última parte da string
+      const id = parts[parts.length - 1];
 
       fetchCharacters(id);
     } else {
@@ -78,11 +78,17 @@ const Details = () => {
       )}
       {character && !loading && (
         <Layout style={layoutStyle}>
-          <Sider character={character} />
-          <Layout.Content>
-            <Character character={character} />
-            <Others character={character} />
-          </Layout.Content>
+          <Row gutter={[16, 16]}>
+            <Col xs={24} md={24} order={1}>
+              <Sider character={character} />
+            </Col>
+            <Col xs={24} md={24} order={2}>
+              <Layout.Content>
+                <Character character={character} />
+                <Others character={character} />
+              </Layout.Content>
+            </Col>
+          </Row>
         </Layout>
       )}
     </>
