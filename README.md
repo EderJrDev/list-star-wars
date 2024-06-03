@@ -1,18 +1,16 @@
 
 # List Characters Star Wars 🚀
 
-Este repositório contém duas aplicações React criada com `create-react-app`. 
-
 ### ✨ Informações adicionais
 
-*Consume a API: https://swapi.dev/api*
+*API utilizada: https://swapi.dev/api*
 
 Bibliotecas utilizadas e recursos desenvolvidos:
 
-1. `Webpack e Module Federation` - Para trabalhar com a construção do projeto, criando o Front remoto e acoplando ao projeto principal
-2. `react-router-dom` - Para trabalhar com rotas do SPA
+1. `Create React App` - Criação do projeto ReactJs configurado 
+2. `react-router-dom` - Para trabalhar com rotas no ReactJs
 3. `axios` - Para trabalhar com requisições de dados
-4. `jest` - Teste unitários para garantir o funcionamento do código
+4. `jest` - Testes unitários para garantir o funcionamento do código
 5. `Ant Design` - como framework de criação dos componentes visuais
 6. `Typescript` - Verificação de tipos estática, autocompletar e detecção de erros durante o processo de desenvolvimento
 6. `Docker` - Ferramenta para simular a construção de um ambiente real de DEV
@@ -20,25 +18,35 @@ Bibliotecas utilizadas e recursos desenvolvidos:
 
 ## 👉 Desafio
 
- Utilizando a API: https://swapi.dev/ e ReactJS 17 / TypeScript 
+ Utilizando a API: https://swapi.dev/ e ReactJS / TypeScript 
 
 - Construa uma interface que liste os personagens;
-- b. A tela, além da grid, deverá ter um filtro que permita filtrar pelo nome dos mesmos;
+- A tela, além da grid, deverá ter um filtro que permita filtrar pelo nome dos mesmos;
 - O grid deverá ser paginado, exibindo 10 registros por vez, e botões de navegação entre os mesmos;
 - Deverá ser utilizado o Ant Design como framework de criação dos componentes visuais, incluindo responsividade;
-- . A aplicação deve ser conteinerizada usando Docker, simulando a construção de um ambiente real de DEV;
-- Trabalhar com componentização;
+- A aplicação deve ser conteinerizada usando Docker, simulando a construção de um ambiente real de DEV;
 - A implementação deverá vir acompanhada da escrita de testes unitários;
 
 
 ---
+## 📸 Imagens da aplicação
 
+ ![Image 1](https://github.com/EderJrDev/list-star-wars/blob/main/src/static/assets/exemples/star-wars-list.png) 
 
-<img src="https://github.com/gatoledo1/movies-microfrontend/assets/19327889/2b1eed24-260e-494b-8dea-89a7770a2b58" width="390" height="283">
-<img src="https://github.com/gatoledo1/movies-microfrontend/assets/19327889/b0174a56-8bbe-4289-8aff-d5e1bf081311" width="390" height="283"> 
+---
+ ![Image 2](https://github.com/EderJrDev/list-star-wars/blob/main/src/static/assets/exemples/one-character.png) 
 
-## [Figma - Wireframe](https://www.figma.com/community/file/1306985064619527096/movies-microfrontend)
+---
+ ![Image 3](https://github.com/EderJrDev/list-star-wars/blob/main/src/static/assets/exemples/filter.png) 
+ 
+## 📸 Mobile
 
+<div align="center">
+  <img src="https://github.com/EderJrDev/list-star-wars/blob/main/src/static/assets/exemples/mobile-list.png" width="400" height="900">
+  <img src="https://github.com/EderJrDev/list-star-wars/blob/main/src/static/assets/exemples/mobile-character.png" width="400" height="900">
+</div>
+
+---
 Abaixo estão instruções detalhadas sobre como configurar e executar o projeto.
 
 ## ✅ Pré-requisitos
@@ -56,7 +64,7 @@ Certifique-se de que você tenha o [Node.js](https://nodejs.org/) e o [npm](http
 2. Navegue até o diretório do projeto:
 
    ```bash
-   cd spa
+   cd list-star-wars
    ```
 
 3. Instale as dependências do projeto executando:
@@ -69,18 +77,26 @@ depois:
    npm start
    ```
 
-## 💻 Estrutura
+## 💻 Aplicação no Docker
 
-O projeto header-app consiste em uma aplicação react somente com o menu, na configuração do Webpack do projeto, a aplicação é externalizada em `http://localhost:3001/remoteEntry.js`
+Para visualizar a aplicação conteinerizada usando Docker execute:
 
-<img src="https://github.com/gatoledo1/movies-microfrontend/assets/19327889/22e008ac-f397-48a5-970c-0d4de2005e64" width="290" height="267"> 
+```bash
+docker build -t list-star-wars .
+```
 
-No projeto kenlo-test-movies, onde contém o container da aplicação (sem o menu), é feita a captura da aplicação remota.
+Execute o container
 
-OBS: O start simultâneo serve para facilitar a execução local, acesse também o link da [Vercel](https://app-movies-microfrontend.vercel.app/) 
+```bash
+docker run -p 3000:3000 spa-list-star-wars
+```
+
+---
+
+Acesse também o link da [Vercel](https://list-star-wars.vercel.app/) 
 
 
-✨ Divirta-se navegando entre os filmes 
+✨ Divirta-se navegando, e que a força esteja com você! 🚀
 
 
 
