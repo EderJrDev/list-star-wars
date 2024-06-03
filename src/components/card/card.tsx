@@ -21,8 +21,8 @@ const CharacterCard: React.FC<PropsCard> = memo(({ url, name }) => {
       className="gutter-row"
       xs={24}
       sm={12}
-      md={8}
-      lg={6}
+      md={12}
+      lg={12}
       xl={6}
     >
       <Link to={`/characters/${getCharactersNumber(url)}`}>
