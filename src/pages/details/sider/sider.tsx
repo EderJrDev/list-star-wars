@@ -1,9 +1,8 @@
 import { Avatar, Layout, Typography } from "antd";
-import { PropsSider } from "../../types/sider";
-import { getCharactersNumber } from "../../utils/getCharactersNumber";
+import { PropsSider } from "../../../types/sider";
+import { getCharactersNumber } from "../../../utils/getCharactersNumber";
 
 const Sider: React.FC<PropsSider> = ({ character }) => {
-  console.log(character);
   const siderStyle: React.CSSProperties = {
     textAlign: "center",
     lineHeight: "120px",
@@ -14,9 +13,9 @@ const Sider: React.FC<PropsSider> = ({ character }) => {
   const getImageSrc = (url: string): string | null => {
     const number = getCharactersNumber(url);
     try {
-      return require(`../../static/assets/img/people/${number}.jpg`);
+      return require(`../../../static/assets/img/people/${number}.jpg`);
     } catch (err) {
-      console.error(`Image not found for character number ${number}`);
+      console.error("Image not found");
       return null;
     }
   };

@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { PlaySquareOutlined } from "@ant-design/icons";
 import { Card, Col, Divider, List, Row, Typography } from "antd";
 //services
-import { getFilm } from "../../services/getFilm";
-import { getVehicles } from "../../services/getVehicles";
-import { getStarships } from "../../services/getStarships";
+import { getFilm } from "../../../services/getFilm";
+import { getVehicles } from "../../../services/getVehicles";
+import { getStarships } from "../../../services/getStarships";
 // utils
-import { PropsSider } from "../../types/sider";
-import { getCharactersNumber } from "../../utils/getCharactersNumber";
+import { PropsSider } from "../../../types/sider";
+import { getCharactersNumber } from "../../../utils/getCharactersNumber";
 
 const Others: React.FC<PropsSider> = ({ character }) => {
   const [filmNames, setFilmNames] = useState<string[]>([]);

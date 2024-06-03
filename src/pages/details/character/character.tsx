@@ -1,7 +1,25 @@
+import { useEffect, useState } from "react";
 import { Card, Col, Divider, Row, Typography } from "antd";
-import { PropsSider } from "../../types/sider";
+
+import { PropsSider } from "../../../types/sider";
+import { getPlanet } from "../../../services/getPlanet";
+import { getCharactersNumber } from "../../../utils/getCharactersNumber";
 
 const Character: React.FC<PropsSider> = ({ character }) => {
+  const [homeWorld, setHomeWord] = useState<string>("");
+
+  async function findPlanet(url: string) {
+    const number = getCharactersNumber(url);
+    const response = await getPlanet(number);
+
+    setHomeWord(response.name);
+  }
+  useEffect(() => {
+    if (character.url) {
+      findPlanet(character.url);
+    }
+  }, [character]);
+
   return (
     <div>
       <Divider
@@ -78,7 +96,7 @@ const Character: React.FC<PropsSider> = ({ character }) => {
               <br />
             </Typography.Text>
             <Typography.Text>
-              <strong>Homeworld:</strong>
+              <strong>Homeworld:</strong> {homeWorld}
               <br />
             </Typography.Text>
           </Card>

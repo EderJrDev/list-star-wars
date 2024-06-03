@@ -4,9 +4,9 @@ import { useHistory, useLocation } from "react-router-dom";
 import { Layout } from "antd";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 //pages
-import Sider from "./sider";
-import Others from "./others";
-import Character from "./character";
+import Sider from "./sider/sider";
+import Others from "./others/others";
+import Character from "./character/character";
 //services
 import { getCharacter } from "../../services/getCharacter";
 import { PropsCharacter } from "../../types/character";

@@ -1,12 +1,13 @@
 import { Suspense, useEffect, useState } from "react";
 import { Pagination, Row } from "antd";
-import axios from "axios";
 //components
 import Header from "../../components/header/header";
 import Loader from "../../components/loader/loader";
 import CharacterCard from "../../components/card/card";
 //types
 import { PropsCharacter } from "../../types/character";
+import { searchCharacter } from "../../services/searchCharacter";
+import { pageCharacter } from "../../services/getPageCharacter";
 
 const Home = () => {
   const [data, setData] = useState<PropsCharacter[]>([]);
@@ -16,11 +17,9 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async (page: number) => {
       try {
-        const response = await axios.get(
-          `${process.env.REACT_APP_SWAPI_URL}/people?page=${page}`
-        );
-        setData(response.data.results);
-        setTotal(response.data.count);
+        const response = await pageCharacter(page);
+        setData(response.results);
+        setTotal(response.count);
       } catch (error) {
         console.error("Error fetching data", error);
       }
@@ -33,12 +32,10 @@ const Home = () => {
     setCurrentPage(page);
   };
 
-  const searchCharacter = async (name: string) => {
+  const search = async (name: string) => {
     try {
-      const response = await axios.get(
-        `${process.env.REACT_APP_SWAPI_URL}/people?search=${name}`
-      );
-      setData(response.data.results);
+      const response = await searchCharacter(name);
+      setData(response);
     } catch (error) {
       console.error("Error searching for character", error);
     }
@@ -46,7 +43,7 @@ const Home = () => {
 
   return (
     <div>
-      <Header onSearch={searchCharacter} />
+      <Header onSearch={search} />
       <Suspense fallback={<Loader />}>
         {data?.length === 0 ? (
           <>
@@ -78,7 +75,7 @@ const Home = () => {
                   padding: 3,
                 }}
                 current={currentPage}
-                total={total}
+                total={total} 
                 pageSize={10}
                 onChange={handlePageChange}
               />
