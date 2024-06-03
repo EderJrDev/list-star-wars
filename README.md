@@ -66,8 +66,13 @@ Certifique-se de que você tenha o [Node.js](https://nodejs.org/) e o [npm](http
    ```bash
    cd list-star-wars
    ```
+3. Crie um arquivo .env e adicione no mesmo:
 
-3. Instale as dependências do projeto executando:
+   ```bash
+   REACT_APP_SWAPI_URL='https://swapi.dev/api'
+   ```
+
+4. Instale as dependências do projeto executando:
 
    ```bash
    npm install
